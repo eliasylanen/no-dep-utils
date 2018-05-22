@@ -1,0 +1,19 @@
+{
+  "name": "no-dep-utils",
+  "version": "0.1.0",
+  "description": "General utitilities without external dependencies",
+  "main": "index.js",
+  "repository": "git@github.com:pepetopo/no-dep-utils.git",
+  "author": "Elias Ylänen <elias.ylanen@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "array.prototype.flatmap": "^1.2.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "jest": "^22.4.4"
+  }
+}
