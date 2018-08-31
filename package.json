@@ -7,13 +7,31 @@
   "author": "Elias Ylänen <elias.ylanen@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.1",
     "array.prototype.flatmap": "^1.2.1",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
-    "jest": "^22.4.4"
+    "jest": "^23.5.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

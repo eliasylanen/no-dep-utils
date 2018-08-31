@@ -1,5 +1,7 @@
-export const containsValue = (obj, find) =>
-  Object.values(obj).reduce((acc, value) => {
+import { anyObj } from '../../types';
+
+export const containsValue = (obj: anyObj, find: any): boolean =>
+  Object.values(obj).reduce((acc: boolean, value: any): boolean => {
     return !!acc
       ? acc
       : typeof value === 'object'
@@ -7,8 +9,8 @@ export const containsValue = (obj, find) =>
         : acc || value === find;
   }, false);
 
-export const containsKey = (obj, find) =>
-  Object.keys(obj).reduce((acc, key) => {
+export const containsKey = (obj: anyObj, find: string): boolean =>
+  Object.keys(obj).reduce((acc: boolean, key: string): boolean => {
     return !!acc
       ? acc
       : key === find

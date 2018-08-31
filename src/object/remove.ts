@@ -1,4 +1,9 @@
-export const removeKey = (obj, keyToRemove) => {
+import { anyObj, Omit } from '../../types';
+
+export const removeKey = (
+  obj: anyObj,
+  keyToRemove: string
+): Omit<anyObj, 'keyToRemove'> => {
   return Object.keys(obj).reduce((acc, key) => {
     return key == keyToRemove
       ? acc
@@ -8,9 +13,8 @@ export const removeKey = (obj, keyToRemove) => {
   }, {});
 };
 
-export const removeValue = (obj, valueToRemove) => {
+export const removeValue = (obj: anyObj, valueToRemove: unknown) => {
   return Object.keys(obj).reduce((acc, key) => {
-    // console.log(obj, key, obj[key]);
     return obj[key] == valueToRemove
       ? acc
       : typeof obj[key] === 'object'
