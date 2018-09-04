@@ -58,7 +58,6 @@ describe('object', () => {
       ).not.toEqual(true);
     });
     it('Sould remove all instances of given value from object', () => {
-      // Actual tests
       expect(
         contains.containsValue(
           remove.removeValue(testObj1, 'test user'),

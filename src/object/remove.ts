@@ -1,21 +1,27 @@
 import { AnyObj } from '../../types';
 
-export const removeKey = (obj: AnyObj, keyToRemove: string): AnyObj => {
-  return Object.keys(obj).reduce((acc: {}, key: string) => {
+export const removeKey = <O extends object>(
+  obj: O,
+  keyToRemove: string,
+): object => {
+  return Object.keys(obj).reduce((acc: object, key: string) => {
     return key === keyToRemove
       ? acc
-      : typeof obj[key] === 'object'
-        ? { ...acc, [key]: removeKey(obj[key], keyToRemove) }
-        : { ...acc, [key]: obj[key] };
+      : typeof obj[key as keyof O] === 'object'
+        ? { ...acc, [key]: removeKey((obj as AnyObj)[key], keyToRemove) }
+        : { ...acc, [key]: obj[key as keyof O] };
   }, {});
 };
 
-export const removeValue = (obj: AnyObj, valueToRemove: unknown): AnyObj => {
+export const removeValue = <O extends object, V>(
+  obj: O,
+  valueToRemove: V,
+): object => {
   return Object.keys(obj).reduce((acc: {}, key: string) => {
-    return obj[key] === valueToRemove
+    return (obj as AnyObj)[key] === valueToRemove
       ? acc
-      : typeof obj[key] === 'object'
-        ? { ...acc, [key]: removeValue(obj[key], valueToRemove) }
-        : { ...acc, [key]: obj[key] };
+      : typeof obj[key as keyof O] === 'object'
+        ? { ...acc, [key]: removeValue((obj as AnyObj)[key], valueToRemove) }
+        : { ...acc, [key]: obj[key as keyof O] };
   }, {});
 };
