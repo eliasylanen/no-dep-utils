@@ -1,6 +1,6 @@
-import { anyObj } from '../../types';
+import { AnyObj } from '../../types';
 
-export const containsValue = (obj: anyObj, find: any): boolean =>
+export const containsValue = (obj: AnyObj, find: any): boolean =>
   Object.values(obj).reduce((acc: boolean, value: any): boolean => {
     return !!acc
       ? acc
@@ -9,7 +9,7 @@ export const containsValue = (obj: anyObj, find: any): boolean =>
         : acc || value === find;
   }, false);
 
-export const containsKey = (obj: anyObj, find: string): boolean =>
+export const containsKey = (obj: AnyObj, find: string): boolean =>
   Object.keys(obj).reduce((acc: boolean, key: string): boolean => {
     return !!acc
       ? acc

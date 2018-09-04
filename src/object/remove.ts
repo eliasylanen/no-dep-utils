@@ -1,10 +1,7 @@
-import { anyObj, Omit } from '../../types';
+import { AnyObj } from '../../types';
 
-export const removeKey = (
-  obj: anyObj,
-  keyToRemove: string,
-): Omit<anyObj, 'keyToRemove'> => {
-  return Object.keys(obj).reduce((acc, key) => {
+export const removeKey = (obj: AnyObj, keyToRemove: string): AnyObj => {
+  return Object.keys(obj).reduce((acc: {}, key: string) => {
     return key === keyToRemove
       ? acc
       : typeof obj[key] === 'object'
@@ -13,8 +10,8 @@ export const removeKey = (
   }, {});
 };
 
-export const removeValue = (obj: anyObj, valueToRemove: unknown) => {
-  return Object.keys(obj).reduce((acc, key) => {
+export const removeValue = (obj: AnyObj, valueToRemove: unknown): AnyObj => {
+  return Object.keys(obj).reduce((acc: {}, key: string) => {
     return obj[key] === valueToRemove
       ? acc
       : typeof obj[key] === 'object'

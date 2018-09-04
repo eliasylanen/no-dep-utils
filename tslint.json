@@ -3,7 +3,9 @@
   "extends": ["tslint:recommended"],
   "rules": {
     "quotemark": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "no-console": false
   },
   "rulesDirectory": []
 }
