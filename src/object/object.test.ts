@@ -1,5 +1,3 @@
-import flatMap from 'array.prototype.flatmap';
-
 import * as contains from './contains';
 import * as remove from './remove';
 
