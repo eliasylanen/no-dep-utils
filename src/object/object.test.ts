@@ -15,7 +15,16 @@ describe('object', () => {
     },
   };
 
-  const testObj2 = {
+  interface Test {
+    foo: string;
+    bar: string;
+    contactInfo: {
+      name: string;
+      age: number;
+    };
+  }
+
+  const testObj2: Test = {
     foo: 'foo',
     bar: 'bar',
     contactInfo: {
@@ -23,6 +32,7 @@ describe('object', () => {
       age: 23,
     },
   };
+
   describe('contains', () => {
     it('Should find if object contains given value', () => {
       expect(contains.containsValue(testObj1, 'test user')).toEqual(true);
